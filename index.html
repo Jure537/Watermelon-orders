@@ -1,65 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sl">
 <head>
   <meta charset="UTF-8" />
-  <title>Order Fresh Watermelons 🍉</title>
+  <title>Lubenice iz Vipavske doline 🍉</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body, html {
-      height: 100%;
       font-family: 'Inter', sans-serif;
-    }
-
-    /* Background image of Vipava Valley */
-    body {
       background: url('vipava.jpg') no-repeat center center fixed;
       background-size: cover;
-      position: relative;
+      color: #222;
     }
 
-    /* Slight dark overlay for contrast */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35); /* semi-transparent dark */
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
 
     .container {
-      max-width: 600px;
-      margin: 3rem auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
       position: relative;
       z-index: 1;
-      text-align: center;
+      max-width: 900px;
+      margin: 3rem auto;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
 
-    .container img {
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro p {
+      font-size: 1.15rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .row .image {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .row .image img {
       width: 100%;
       border-radius: 1rem;
-      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .row .text {
+      flex: 1;
+      min-width: 250px;
     }
 
-    p {
-      margin-bottom: 1.5rem;
+    .row .text h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #222;
+    }
+
+    .row .text p {
       color: #555;
+      font-size: 1.05rem;
+    }
+
+    form {
+      margin-top: 3rem;
     }
 
     form input, form textarea, form button {
@@ -90,10 +117,10 @@
       background: #218838;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 1rem;
-        margin: 1.5rem;
+    @media (max-width: 768px) {
+      .row, .row.reverse {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -101,21 +128,75 @@
 <body>
 
   <div class="container">
-    <img src="lubenica.jpg" alt="Watermelons" />
-    <h1>Naroči slastne lubenice kar prek telefona! 🍉</h1>
-    <p>Sladke, sočne in popolna osvežitev za poletne dni! Naroči direktno iz rajske Vipavske doline!</p>
 
-    <form action="https://formspree.io/f/mrbpjdea" method="POST">
-      <input type="text" name="Ime" placeholder="Tvoje ime" required />
-      <input type="tel" name="Telefon" placeholder="Tvoja tel. št." required />
-      <input type="email" name="email" placeholder="Mail (ni nujno)" pattern=".*@gmail\.com" />
-      <input type="number" name="quantity" placeholder="Želim naročiti ___ lubenic." required />
-      <textarea name="notes" placeholder="Dodatno sporočilo"></textarea>
+    <section class="intro" data-aos="fade-down">
+      <h1>Lubenice iz Vipavske doline 🍉</h1>
+      <p>Zrasle pod soncem Vipavske doline — sladke, sočne in lokalne. Dostavljene neposredno s polja v vaše poletne trenutke.</p>
+    </section>
 
-      <input type="hidden" name="_next" value="https://Jure537.github.io/thank-you.html">
-      <button type="submit">Naroči Lubenice 🍉</button>
-    </form>
+    <!-- Vrstica 1 -->
+    <section class="row" data-aos="fade-right">
+      <div class="image"><img src="farm.jpg" alt="Kmetija"></div>
+      <div class="text">
+        <h2>Kje se vse začne</h2>
+        <p>To je naša družinska kmetija v srcu Vipavske doline. Sončni dnevi in rodovitna zemlja so popolna kombinacija za gojenje najslajših lubenic.</p>
+      </div>
+    </section>
+
+    <!-- Vrstica 2 -->
+    <section class="row reverse" data-aos="fade-left">
+      <div class="image"><img src="melon1.jpg" alt="Lubenica 1"></div>
+      <div class="text">
+        <h2>Polne sonca in okusa</h2>
+        <p>Ročno obrane v pravem trenutku zrelosti — naše lubenice so polne okusa, idealne za vroče dni ali piknike z družino.</p>
+      </div>
+    </section>
+
+    <!-- Vrstica 3 -->
+    <section class="row" data-aos="fade-right">
+      <div class="image"><img src="melon2.jpg" alt="Lubenica 2"></div>
+      <div class="text">
+        <h2>Sveže vsak dan</h2>
+        <p>Vsaka lubenica je obrana s skrbnostjo, čez noč naravno ohlajena in naslednji dan dostavljena na vaš naslov.</p>
+      </div>
+    </section>
+
+    <!-- Vrstica 4 -->
+    <section class="row reverse" data-aos="fade-left">
+      <div class="image"><img src="vipava-field.jpg" alt="Vipavska dolina"></div>
+      <div class="text">
+        <h2>Moč vipavske narave</h2>
+        <p>Najbolj sončna pokrajina v Sloveniji našim pridelkom daje edinstveno sladkobo, ki jo boste začutili v vsakem grižljaju.</p>
+      </div>
+    </section>
+
+    <!-- Naročilnica -->
+    <section class="form" data-aos="fade-up">
+      <h2>Naroči svojo lubenico</h2>
+      <form action="https://formsubmit.co/YOUR@email.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://thankyou-page.com">
+
+        <input type="text" name="name" placeholder="Vaše ime" required />
+        <input type="tel" name="phone" placeholder="Telefonska številka" required />
+        <input type="email" name="email" placeholder="Gmail (neobvezno)" pattern=".*@gmail\.com" />
+        <input type="number" name="quantity" placeholder="Število lubenic" required />
+        <textarea name="notes" placeholder="Posebne želje (neobvezno)"></textarea>
+
+        <button type="submit">Oddaj naročilo 🍉</button>
+      </form>
+    </section>
+
   </div>
+
+  <!-- AOS Scroll Animations -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 
 </body>
 </html>
